@@ -184,7 +184,7 @@ const deleteReview = async function (req, res) {
         
         const reviewCountInBook = await bookModel.findOneAndUpdate({ _id: bookId, isDeleted: false }, { $inc: { reviews: -1 } },{ new: true });
 
-        return res.status(200).send({ status: true, message: "Review Deleted Successfully" })  // some edit have do here
+        return res.status(200).send({ status: true, message: "Review Deleted Successfully" })  
     }
     catch (err) {
         return res.status(500).send({ status: false, message: err.message });
